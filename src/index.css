@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+* {
+  scroll-behavior: smooth;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  @apply max-w-7xl mx-auto my-4;
+}
