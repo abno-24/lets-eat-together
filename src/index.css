@@ -2,9 +2,9 @@
 
 * {
   scroll-behavior: smooth;
-  font-family: 'Poppins', sans-serif;
+  font-family: Gilroy, arial, Helvetica Neue, sans-serif;
 }
 
 .container {
-  @apply max-w-7xl mx-auto my-4;
+  @apply max-w-10/12 mx-auto my-4;
 }
