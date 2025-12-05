@@ -15,7 +15,7 @@ const Header = () => {
           <li>Contact</li>
           <li>Account</li>
         </ul>
-        <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold rounded-full px-4 py-2">Login</Button>
+        <Button className="bg-red-600 hover:bg-red-700 text-white font-semibold rounded-full px-4 py-2 cursor-pointer">Login</Button>
       </div>
     </header>
   )

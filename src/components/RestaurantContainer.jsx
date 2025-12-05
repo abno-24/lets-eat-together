@@ -3,6 +3,7 @@ import { SWIGGY_API } from "../utils/constants";
 import { Grid } from 'react-loader-spinner'
 import RestaurantCard from "./RestaurantCard";
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
 
 const RestaurantContainer = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -62,9 +63,13 @@ const RestaurantContainer = () => {
     </div> :
     (
       <div className="my-8">
-        <div className="flex flex-col justify-start">
+        <div className="flex justify-between items-center">
           <h2 className="font-bold text-2xl">Restaurants with online food delivery in Mumbai</h2>
-          <div className="flex gap-4">
+          <div className="flex gap-2 w-3/12">
+            <Input type="text" placeholder="Search restaurants" className="" />
+            <Button type="submit" variant="outline" className="bg-red-600 hover:bg-red-700 hover:text-white text-white font-semibold cursor-pointer">
+              Search
+            </Button>
           </div>
         </div>
         <div className="my-8 grid grid-cols-4 gap-8">
