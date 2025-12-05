@@ -40,7 +40,7 @@ const RestaurantContainer = () => {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center items-center h-96">
+      <div className="flex justify-center items-center h-[calc(100vh-100px)]">
         <Grid
           visible={isLoading}
           height="80"
@@ -67,7 +67,7 @@ const RestaurantContainer = () => {
         <div className="flex gap-4">
         </div>
       </div>
-      <div className="my-8 grid grid-cols-4 gap-8 rounded-md">
+      <div className="my-8 grid grid-cols-4 gap-8">
         <RestaurantCard restaurants={restaurants} />
       </div>
     </div>
