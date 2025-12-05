@@ -8,6 +8,8 @@ import { Input } from "@/components/ui/input"
 const RestaurantContainer = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [restaurants, setRestaurants] = useState([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+  const [search, setSearch] = useState("");
   const [error, setError] = useState(null);
 
   const fetchData = async () => {
@@ -16,20 +18,21 @@ const RestaurantContainer = () => {
 
     try {
       const data = await fetch(SWIGGY_API);
-
       if (!data.ok) {
         throw new Error(`HTTP error! status: ${data.status}`);
       }
 
       const json = await data.json();
-
       const restaurantList = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+      const filteredRestaurantsList = restaurantList;
 
       setRestaurants(restaurantList);
+      setFilteredRestaurants(filteredRestaurantsList);
     } catch (error) {
       console.error("Failed to fetch restaurants:", error);
       setError("Failed to load restaurant data. Please try again.");
       setRestaurants([]);
+      setFilteredRestaurants([]);
     } finally {
       setIsLoading(false);
     }
@@ -65,15 +68,37 @@ const RestaurantContainer = () => {
       <div className="my-8">
         <div className="flex justify-between items-center">
           <h2 className="font-bold text-2xl">Restaurants with online food delivery in Mumbai</h2>
-          <div className="flex gap-2 w-3/12">
-            <Input type="text" placeholder="Search restaurants" className="" />
-            <Button type="submit" variant="outline" className="bg-red-600 hover:bg-red-700 hover:text-white text-white font-semibold cursor-pointer">
+          <div className=" w-3/12 flex gap-2">
+            <Input
+              type="text"
+              placeholder="Search restaurants"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  const filteredList = restaurants.filter((restaurant) =>
+                    restaurant.info.name.toLowerCase().includes(search.toLowerCase())
+                  );
+                  setFilteredRestaurants(filteredList);
+                }
+              }}
+            />
+            <Button
+              type="submit"
+              className="bg-red-600 hover:bg-red-700 hover:text-white text-white font-semibold cursor-pointer"
+              onClick={() => {
+                const filteredList = restaurants.filter((restaurant) =>
+                  restaurant.info.name.toLowerCase().includes(search.toLowerCase())
+                );
+                setFilteredRestaurants(filteredList);
+              }}
+            >
               Search
             </Button>
           </div>
         </div>
         <div className="my-8 grid grid-cols-4 gap-8">
-          <RestaurantCard restaurants={restaurants} />
+          <RestaurantCard restaurants={filteredRestaurants} />
         </div>
       </div>
     )
