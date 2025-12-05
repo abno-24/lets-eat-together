@@ -1,13 +1,34 @@
 import Header from "./components/Header"
+import About from "./components/About"
 import RestaurantContainer from "./components/RestaurantContainer"
+import { createBrowserRouter, Outlet } from "react-router-dom"
 
-function App() {
+export const App = () => {
   return (
     <div className="container">
       <Header />
-      <RestaurantContainer />
+      <Outlet />
     </div>
   )
 }
 
-export default App
+// eslint-disable-next-line react-refresh/only-export-components
+export const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <RestaurantContainer />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+    ],
+    errorElement: <div>Error occurred!</div>,
+  }
+])
+
+// export default App
