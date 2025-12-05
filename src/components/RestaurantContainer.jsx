@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { SWIGGY_API } from "../utils/constants";
 import { Grid } from 'react-loader-spinner'
 import RestaurantCard from "./RestaurantCard";
+import { Button } from "@/components/ui/button"
 
 const RestaurantContainer = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -60,8 +61,15 @@ const RestaurantContainer = () => {
   }
 
   return (
-    <div className="my-8 grid grid-cols-4 gap-8 rounded-md">
-      <RestaurantCard restaurants={restaurants} />
+    <div className="my-8">
+      <div className="flex flex-col justify-start">
+        <h2 className="font-bold text-2xl">Restaurants with online food delivery in Mumbai</h2>
+        <div className="flex gap-4">
+        </div>
+      </div>
+      <div className="my-8 grid grid-cols-4 gap-8 rounded-md">
+        <RestaurantCard restaurants={restaurants} />
+      </div>
     </div>
   )
 }

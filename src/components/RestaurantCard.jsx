@@ -8,8 +8,8 @@ const RestaurantCard = ({ restaurants }) => {
         restaurants.map((restaurant) => (
           <div key={restaurant?.info?.id} className="rounded-3xl h-[380px] pb-8 hover:cursor-pointer hover:scale-95 duration-100">
             {console.log(restaurant)}
-            <div className="h-9/12">
-              <img src={CLOUDINARY_IMG_URL + restaurant?.info?.cloudinaryImageId} alt={restaurant?.info?.name} className="h-full rounded-3xl" />
+            <div className="rest-card-img" style={{ backgroundImage: `url(${CLOUDINARY_IMG_URL + restaurant?.info?.cloudinaryImageId})` }}>
+              {/* <img src={CLOUDINARY_IMG_URL + restaurant?.info?.cloudinaryImageId} alt={restaurant?.info?.name} className="h-full rounded-3xl" /> */}
             </div>
             <div className="ml-3 mt-2">
               <div className="my-1">
@@ -22,7 +22,7 @@ const RestaurantCard = ({ restaurants }) => {
                 </div>
               </div>
               <div className="text-gray-700 text-md">
-                <div>{restaurant?.info?.cuisines.join(", ")}</div>
+                <div className="text-nowrap overflow-hidden">{restaurant?.info?.cuisines.join(", ")}</div>
                 <div>{restaurant?.info?.locality}</div>
               </div>
             </div>
