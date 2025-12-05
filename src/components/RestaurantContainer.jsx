@@ -57,7 +57,9 @@ const RestaurantContainer = () => {
   }
 
   return restaurants.length === 0 ?
-    <h1>No restaurants found!</h1> :
+    <div className="flex justify-center items-center h-[calc(100vh-100px)]">
+      <h1 className="text-3xl font-bold">Oops... No restaurants found! 🤕</h1>
+    </div> :
     (
       <div className="my-8">
         <div className="flex flex-col justify-start">
