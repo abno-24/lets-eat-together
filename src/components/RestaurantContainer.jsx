@@ -45,7 +45,7 @@ const RestaurantContainer = () => {
           visible={isLoading}
           height="80"
           width="80"
-          color="#FF6647"
+          color="#79716B"
           ariaLabel="grid-loading"
         />
       </div>
@@ -56,22 +56,20 @@ const RestaurantContainer = () => {
     return <div className="text-red-600 p-4 text-center">Error: {error}</div>;
   }
 
-  if (restaurants.length === 0) {
-    return <h1>No restaurants found!</h1>
-  }
-
-  return (
-    <div className="my-8">
-      <div className="flex flex-col justify-start">
-        <h2 className="font-bold text-2xl">Restaurants with online food delivery in Mumbai</h2>
-        <div className="flex gap-4">
+  return restaurants.length === 0 ?
+    <h1>No restaurants found!</h1> :
+    (
+      <div className="my-8">
+        <div className="flex flex-col justify-start">
+          <h2 className="font-bold text-2xl">Restaurants with online food delivery in Mumbai</h2>
+          <div className="flex gap-4">
+          </div>
+        </div>
+        <div className="my-8 grid grid-cols-4 gap-8">
+          <RestaurantCard restaurants={restaurants} />
         </div>
       </div>
-      <div className="my-8 grid grid-cols-4 gap-8">
-        <RestaurantCard restaurants={restaurants} />
-      </div>
-    </div>
-  )
+    )
 }
 
 export default RestaurantContainer
