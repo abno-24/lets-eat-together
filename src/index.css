@@ -11,14 +11,6 @@ body {
   font-family: 'Gilroy', sans-serif;
 }
 
-.container {
-  @apply max-w-10/12 mx-auto my-4;
-}
-
-.rest-card-img{
-  @apply h-8/12 bg-center bg-cover bg-no-repeat rounded-2xl;
-}
-
 @font-face {
   font-family: 'Gilroy';
   src: url('/fonts/Gilroy-Thin.ttf') format('truetype');
@@ -277,4 +269,12 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.container {
+  @apply max-w-10/12 mx-auto my-4;
+}
+
+.rest-card-img{
+  @apply h-8/12 bg-center bg-cover bg-no-repeat rounded-2xl;
 }
