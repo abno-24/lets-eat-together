@@ -30,5 +30,3 @@ export const appRouter = createBrowserRouter([
     errorElement: <div>Error occurred!</div>,
   }
 ])
-
-// export default App
