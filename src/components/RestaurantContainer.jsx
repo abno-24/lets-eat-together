@@ -4,6 +4,7 @@ import { Grid } from 'react-loader-spinner'
 import RestaurantCard from "./RestaurantCard";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
+import Loader from "./Loader";
 
 const RestaurantContainer = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,7 +31,7 @@ const RestaurantContainer = () => {
       setFilteredRestaurants(filteredRestaurantsList);
     } catch (error) {
       console.error("Failed to fetch restaurants:", error);
-      setError("Failed to load restaurant data. Please try again.");
+      setError("Failed to load restaurants data. Please try again.");
       setRestaurants([]);
       setFilteredRestaurants([]);
     } finally {
@@ -43,17 +44,7 @@ const RestaurantContainer = () => {
   }, [])
 
   if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-[calc(100vh-100px)]">
-        <Grid
-          visible={isLoading}
-          height="80"
-          width="80"
-          color="#79716B"
-          ariaLabel="grid-loading"
-        />
-      </div>
-    );
+    return <Loader isLoading={isLoading} />;
   }
 
   if (error) {
