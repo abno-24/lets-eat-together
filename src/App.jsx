@@ -3,7 +3,7 @@ import About from "./components/About"
 import RestaurantContainer from "./components/RestaurantContainer"
 import Restaurtant from "./components/Restaurtant"
 import { createBrowserRouter, Outlet } from "react-router-dom"
-
+import Error from "./components/Error"
 export const App = () => {
   return (
     <div className="container">
@@ -32,6 +32,6 @@ export const appRouter = createBrowserRouter([
         element: <Restaurtant />,
       },
     ],
-    errorElement: <div>Error occurred!</div>,
+    errorElement: <Error />,
   }
 ])
