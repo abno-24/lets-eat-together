@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { SWIGGY_API } from "../utils/constants";
-import { Grid } from 'react-loader-spinner'
 import RestaurantCard from "./RestaurantCard";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"

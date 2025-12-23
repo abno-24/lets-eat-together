@@ -1,7 +1,7 @@
 import Header from "./components/Header"
 import About from "./components/About"
 import RestaurantContainer from "./components/RestaurantContainer"
-import Restaurtant from "./components/Restaurtant"
+import Restaurant from "./components/Restaurant"
 import { createBrowserRouter, Outlet } from "react-router-dom"
 import Error from "./components/Error"
 export const App = () => {
@@ -29,7 +29,7 @@ export const appRouter = createBrowserRouter([
       },
       {
         path: "/restaurant/:id",
-        element: <Restaurtant />,
+        element: <Restaurant />,
       },
     ],
     errorElement: <Error />,
