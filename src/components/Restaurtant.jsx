@@ -19,7 +19,7 @@ const Restaurtant = () => {
       }
 
       const json = await data.json();
-      console.log(json.data);
+      console.log(json?.data);
 
     } catch (error) {
       console.error("Failed to fetch restaurant:", error);
